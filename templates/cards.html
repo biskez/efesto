@@ -1,0 +1,24 @@
+{% block cards %}
+
+<div style="padding-top:50px;">
+  {% for project in projects %}
+    {% if forloop.counter0|divisibleby:2 %}
+      <ul class="list-group list-group-horizontal">
+    {% endif %}
+    <li class="list-group-item" style="background: #eee;border:0px;">
+      <div class="card" style="width: 18rem;">
+        <img src="{{ project.image }}" class="card-img-top" alt="{{project.title}}">
+        <div class="card-body">
+          <h5 class="card-title">{{project.title}}</h5>
+          <p class="card-text">{{project.description}}</p>
+        </div>
+      </div>
+    </li>
+    {% if forloop.counter0|divisibleby:2 %}
+    {% else %}
+      </ul>
+    {% endif %}
+  {% endfor %}
+</div>
+
+{% endblock cards %}

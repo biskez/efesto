@@ -1,0 +1,47 @@
+{% block navbar %}
+{% load i18n %}
+{% get_current_language as LANGUAGE_CODE %}                
+{% get_available_languages as LANGUAGES %}
+{% get_language_info_list for LANGUAGES as languages %}
+
+<nav class="navbar navbar-expand-lg navbar-light bg-lightr">
+    <div class="container-fluid">
+    <div class="margin-right15vw margin-left5vw"><a href="/{{LANGUAGE_CODE}}/"><img  class="navbar-icon" src="{{configData.icon}}"/></a></div>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+            <li class="nav-item dropdown">
+                <a class="nav-link uppercase bold nav-line" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                {% translate "Language" %}
+                </a>
+                <ul class="dropdown-menu capitalize" aria-labelledby="navbarDropdown">
+                {% for lang in languages %}
+                    <li>
+                    <a class="dropdown-item" href="/{{ lang.code }}/">
+                        {{ lang.name_local }}
+                    </a>
+                    </li>
+                {% endfor %}
+                </ul>
+            </li>
+
+            <li class="nav-item"><a class="nav-link uppercase slash" style="color: rgba(0,0,0,.3) !important;" aria-current="page">|</a></li>
+
+            {% for block in navbar %}
+                <li class="nav-item">
+                    {% if current_page == block.name_en %}
+                        <a class="nav-link uppercase active" aria-current="page" href="/{{LANGUAGE_CODE}}/{{block.route}}">{{block.name}}</a>
+                    {% else %}
+                        <a class="nav-link uppercase" aria-current="page" href="/{{LANGUAGE_CODE}}/{{block.route}}">{{block.name}}</a>
+                    {% endif %}
+                </li>
+            {% endfor %}
+            
+        </ul>
+    </div>
+    </div>
+</nav>
+{% endblock navbar %}

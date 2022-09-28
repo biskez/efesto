@@ -1,0 +1,21 @@
+{% include 'base.html' %}
+{% include 'navbar.html' %}
+
+{% load i18n %}
+{% get_current_language as LANGUAGE_CODE %}
+
+
+<div class="vignette animate__animated animate__fadeInRight animate__delay-{{member.delay}}s radius100">
+    <img class="vignette-image radius100" src="{{member.image}}"/>
+    <div class="vignette-overlay radius100">
+        <div class="vignette-text radius100">
+            {{member.name}} {{member.surname}}
+        </div>
+    </div>
+</div>
+
+</body>
+
+{% include 'script.html' %}
+
+{% include 'footer.html' %}

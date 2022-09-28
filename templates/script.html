@@ -1,0 +1,417 @@
+{% block script %}
+
+<!-- Async script executes immediately and must be after any DOM elements used in callback. -->
+<script>
+  var data = JSON.parse("{{dataJSON|escapejs}}");
+  // Initialize and add the map
+  lat = 46.0000000;
+  lng = 12.0000000;
+  zoom = 7;
+  if(data.length == 1){
+    lat = parseFloat(data[0].lat);
+    lng = parseFloat(data[0].lng);
+    zoom = 9;
+  }
+  function initMap() {
+    map = new google.maps.Map(document.getElementById("map"), {
+      center: { lat: lat, lng: lng },
+      zoom: zoom,
+      streetViewControl: false,
+      styles: [
+        {
+          "elementType": "labels",
+          "stylers": [
+            {
+              "visibility": "off"
+            }
+          ]
+        },
+        {
+          "featureType": "administrative",
+          "stylers": [
+            {
+              "visibility": "on"
+            }
+          ]
+        },
+        {
+          "featureType": "administrative.land_parcel",
+          "stylers": [
+            {
+              "visibility": "off"
+            }
+          ]
+        },
+        {
+          "featureType": "administrative.neighborhood",
+          "stylers": [
+            {
+              "visibility": "off"
+            }
+          ]
+        },
+        {
+          "featureType": "landscape",
+          "stylers": [
+            {
+              "color": "#dda56e"
+            }
+          ]
+        },
+        {
+          "featureType": "water",
+          "stylers": [
+            {
+              "color": "#eeeeee"
+            }
+          ]
+        },
+        {
+          "featureType": "road.arterial",
+          "stylers": [
+            {
+              "visibility": "off"
+            }
+          ]
+        },
+        {
+          "featureType": "road.highway",
+          "elementType": "labels",
+          "stylers": [
+            {
+              "visibility": "off"
+            }
+          ]
+        },
+        {
+          "featureType": "road.local",
+          "stylers": [
+            {
+              "visibility": "off"
+            }
+          ]
+        },
+        {
+          "featureType": "poi",
+          "stylers": [
+            {
+              "color": "#dda56e"
+            }
+          ]
+        }
+      ]
+    });
+    
+    const infowindows = [];
+    var i = 0;
+    const locations = [];
+    const marker_icons = [];
+
+    data.forEach(element => {
+      console.log(element);
+      const infowindow = new google.maps.InfoWindow({
+        content: 
+          "<a href="+element.link+" class='decoration-none'>"+
+            "<div class='flex'>"+
+              "<div class='margin-auto padding-right1vh'>"+
+                "<img class='windowType' src="+element.image+"/>"+
+              "</div>"+
+              "<div class='margin-bottom0'>"+
+                "<h6 class='margin-bottom0 uppercase weight400 size8'>"+element.type+"</h6>"+
+                "<h4 class='margin-bottom0 uppercase weight400'>"+element.title+"</h4>"+
+              "</div>"+
+            "</div>"+
+          "</a>"/*+
+          "<p class='infoWindow'>"+element.description+"</p>",*/
+      });
+      infowindows[i] = infowindow;
+      locations[i] = { lat: parseFloat(element.lat), lng: parseFloat(element.lng) };
+      marker_icons[i] = {
+          url: element.marker,
+          scaledSize: new google.maps.Size(60, 60), // scaled size
+          origin: new google.maps.Point(0,0), // origin
+          anchor: new google.maps.Point(30,60) // anchor
+      };
+      i++;
+    });
+    
+    /*var icon = {
+      url: "{{marker}}", // url
+      scaledSize: new google.maps.Size(30, 30), // scaled size
+      origin: new google.maps.Point(0,0), // origin
+      anchor: new google.maps.Point(15,30) // anchor
+    };
+    const labels = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"; */
+    
+    const markers = locations.map((location, i) => {
+      return new google.maps.Marker({
+        position: location,
+        //label: labels[i % labels.length],
+        //icon: marker_icons[i],
+        icon: "{{marker}}",
+      });
+    });
+
+    markers.forEach((marker, index) => {
+      marker.addListener("click", () => {
+        infowindows[index].open({
+          anchor: marker,
+          map,
+          shouldFocus: false,
+        });
+      });
+    });
+    
+    // Add a marker clusterer to manage the markers.
+    var a = new MarkerClusterer(map, markers, {
+      /*calculator: function(markers, numStyles) {//hide cluster number
+        var index = 0;
+        var count = markers.length.toString();
+
+        var dv = count;
+        while (dv !== 0) {
+          dv = parseInt(dv / 10, 10);
+          index++;
+        }
+
+        index = Math.min(index, numStyles);
+        console.log(markers);
+        return {
+          text: "",
+          index: index,
+          title: count
+        };
+      },*/
+      imagePath:
+        //"https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m",
+        "{{cluster_path}}",
+    });
+  }
+</script>
+<script
+  src="{{gmaps}}"
+  async
+></script>
+
+<!-- Numbers Animations -->
+<script>
+  function animateValue(obj, start, end, duration) {
+    let startTimestamp = null;
+    const step = (timestamp) => {
+      if (!startTimestamp) startTimestamp = timestamp;
+      const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+      obj.innerHTML = Math.floor(progress * (end - start) + start).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+      if (progress < 1) {
+        window.requestAnimationFrame(step);
+      }
+    };
+    window.requestAnimationFrame(step);
+  }
+
+  const obj1 = document.getElementById("value1");
+  const obj2 = document.getElementById("value2");
+  const obj3 = document.getElementById("value3");
+</script>
+
+
+<!-- Animation Visibility Onscroll -->
+<script>
+  var gallery_project = false;
+  onViewport(".gallery-project", "", 0, function() {
+    if(!gallery_project)
+      loadGallery('In');
+    gallery_project = true;
+  });
+
+  onViewport(".num1", "", 0, function() {
+    if(obj1.innerHTML == 0){
+      animateValue(obj1, 0, 359, 4000);
+    }
+  });
+  
+  onViewport(".num2", "", 0, function() {
+    if(obj2.innerHTML == 0){
+      animateValue(obj2, 0, 1456000, 4000);
+    }
+  });
+  
+  onViewport(".num3", "", 0, function() {
+    if(obj3.innerHTML == 0){
+      animateValue(obj3, 0, 5500, 4000);
+    }
+  });
+
+  function onViewport(el, elClass, offset, callback) {
+    var coef;
+    switch(el){
+      case ".gallery-project":
+          coef = 1;
+      break;
+      default:
+          coef = 15;
+      break;
+    }
+    /*** Based on http://ejohn.org/blog/learning-from-twitter/ ***/
+    var didScroll = false;
+    var this_top;
+    var height;
+    var top;
+    
+    if(!offset) { var offset = 0; }
+  
+    $(window).scroll(function() {
+        didScroll = true;
+    });
+  
+    setInterval(function() {
+      if (didScroll) {
+        didScroll = false;
+        top = $(this).scrollTop();
+  
+        $(el).each(function(i){
+          height = $(this).height();
+          this_top = $(this).offset().top - (coef * height);
+          
+          // Scrolled within current section
+          if (top >= this_top && !$(this).hasClass(elClass)) {
+            $(this).addClass(elClass);
+  
+            if (typeof callback == "function") callback(el);
+          }
+        });
+      }
+    }, 100);
+  }
+</script>
+
+
+<!-- Initialize Swiper -->
+<script>
+  var swiper = new Swiper(".mySwiper", {
+    //effect: "cube",
+    slidesPerView: 1,
+    spaceBetween: 30,
+    loop: true,
+    speed: 1000,
+    autoplay: {
+      delay: 11000,
+      disableOnInteraction: false,
+    },
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+      dynamicBullets: true,
+    },
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+  }); 
+    
+
+  //top-link button
+  var btn = $('#top-link');
+
+  $(window).scroll(function() {
+    if ($(window).scrollTop() > 250) {
+      btn.addClass('show');
+    } else {
+      btn.removeClass('show');
+    }
+  });
+
+  btn.on('click', function(e) {
+    e.preventDefault();
+    $('html, body').animate({scrollTop:0}, '250');
+  });
+
+</script>
+
+<!-- Animation Gallery -->
+<script>
+  var items = document.querySelectorAll('.masonry-a .project');
+  var isMoved = false;
+
+  function loadGallery(verse){
+    // toggle flag
+    isMoved = !isMoved;
+
+    for ( var i=0; i < items.length; i++ ) {
+      // get function in closure, so i can iterate
+      var toggleItemMove = getToggleItemMove( i, verse);
+      // reverse stagger order
+      var delay = isMoved ? ( items.length - i - 1 ) : i;
+      delay *= 50;
+      // stagger transition with setTimeout
+      setTimeout( toggleItemMove, delay );
+    }
+  };
+
+  function getToggleItemMove( i, verse) {
+    var item = items[i];
+    if(verse == 'In'){
+      item.classList.remove('moveOutGallery');
+      item.classList.add('moveInGallery');
+    }else if(verse == 'Out'){
+      item.classList.remove('moveInGallery');
+      item.classList.add('moveOutGallery');
+    }
+    return function(verse) {
+      item.classList.toggle('is-moved');
+    }
+  }
+
+
+  $('.filter-button-group').on( 'click', '.button', function() {
+    var gallery = document.getElementById('gallery');
+    var offsetHeight = gallery.offsetHeight;
+    gallery.style.maxHeight = offsetHeight+"px";
+
+    var button_filters = document.getElementsByClassName('button');
+    for (var i = 0; i < button_filters.length; i++) {
+      button_filters[i].classList.remove('typeProjectButton--active');
+    }
+    $(this)[0].classList.add('typeProjectButton--active');
+    
+    disableClick(true);
+    loadGallery('Out');
+    var filterValue = $(this).attr('data-filter');
+    setTimeout(function(){refreshGallery(filterValue)}, 750);
+  });
+
+  function refreshGallery(filterValue){ 
+    var projects = document.getElementsByClassName("project");
+    for (var i = 0; i < projects.length; i++) {
+      projects[i].style.display = "none";
+    }
+
+    var projects = document.getElementsByClassName(filterValue);
+    for (var i = 0; i < projects.length; i++) {
+      projects[i].style.display = "";
+    }
+
+    var gallery = document.getElementById('gallery');
+    gallery.classList.add('max-height100');
+    gallery.style.maxHeight = "";
+    gallery.style.opacity = "0";
+    setTimeout(function(){
+      gallery.classList.remove('max-height100');
+      gallery.style.opacity = "1";
+      loadGallery('In'); 
+      disableClick(false);
+    }, 750);
+  }
+
+  function disableClick(state){
+    var button_filters = document.getElementsByClassName('button');
+    for (var i = 0; i < button_filters.length; i++) {
+      button_filters[i].disabled = state;
+      /*if(state)
+        button_filters[i].classList.add('button-disabled');
+      else
+        button_filters[i].classList.remove('button-disabled');*/
+    }
+  }
+</script>
+
+{% endblock script %}

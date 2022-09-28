@@ -1,0 +1,18 @@
+{% include 'base.html' %}
+{% include 'navbar.html' %}
+
+{% load i18n %}
+
+<div class="center uppercase flex width100 v-align-middle margin-bottom5vh">
+    <div class="width33"></div>
+    <div class="width33 center">
+        <img src="{{dataError.image}}" class="width75"/>
+        <h1 class="error-line brown weight600">{{dataError.code}}</h1>
+        <h4 class="darkbrown bold">{{dataError.error}}</h4>
+    </div>
+    <div class="width33"></div>
+</div>
+
+{% include 'script.html' %}
+
+{% include 'footer.html' %}

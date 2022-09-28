@@ -1,0 +1,164 @@
+@media screen and (min-width: 601px) {
+  h1 {
+    font-size:28px;
+  }
+  h4 {
+    font-size:18px;
+  }
+  .footer-col{
+    flex: 0 0 25%;
+    max-width: 25%;
+    margin-bottom: 0vh;
+  }
+  .numbers-col{
+    flex: 0 0 33%;
+    max-width: 33%;
+  }
+  .numbershomepage{
+    font-size:50px;
+  }
+  .p-project {
+    font-size:18px;
+  }
+  .div-project{
+    height: 75%;
+  }
+  .div-project-specs{
+    margin-top:10vh;
+  }
+}
+  
+@media screen and (max-width: 600px) {
+  h1 {
+    font-size:5vw;
+  }
+  h4 {
+    font-size:3.5vw;
+  }
+  .footer-col{
+    flex: "";
+    max-width: "";
+    margin-bottom: 5vh;
+  }
+  .numbers-col{
+    flex: "";
+    max-width: "";
+    margin-bottom: 5vh;
+  }
+  .numbershomepage{
+    font-size:10vw;
+  }
+  .p-project {
+    font-size:3.5vw;
+  }
+  .div-project-specs{
+    margin-top:3vh;
+  }
+}
+
+
+@media screen and (max-width: 991px) {  
+  .slash{
+    display: none;
+  }
+  .nav-line{
+    border-bottom: 1px solid rgba(0,0,0,.3);
+  }
+  .p-homepage{
+    margin-left: 5vw;
+    margin-right: 5vw;
+  }
+  .specs-project{
+    margin-left:10vw;
+    width: 80%;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .slash{
+    display: "";
+  }
+  .nav-line{
+    border-bottom: none;
+  }
+  .p-homepage{
+    margin-left: 30vw;
+    margin-right: 30vw;
+  }
+  .specs-project{
+    margin-left:7vw;
+    width: 40%;
+  }
+}
+
+
+/* Masonry on large screens */
+@media only screen and (min-width: 1024px) {
+  .masonry {
+    column-count: 4;
+  }
+  .project-text, .vignette-text{
+    font-size: 1vw;
+  }
+  .project.is-moved {
+    transform: translate(500%, 0%);
+  }  
+  .vignette {
+    width: 17%;
+  }
+  .vignette-image {
+    height: 17vw;
+  }
+}
+
+/* Masonry on medium-sized screens */
+@media only screen and (max-width: 1023px) and (min-width: 768px) {
+  .masonry {
+    column-count: 3;
+  }
+  .project-text, .vignette-text{
+    font-size:1.5vw;
+  }
+  .project.is-moved {
+    transform: translate(385%, 0%);
+  }  
+  .vignette {
+    width: 30%;
+  }
+  .vignette-image {
+    height: 30vw;
+  }
+}
+
+/* Masonry on small screens */
+@media only screen and (max-width: 767px) and (min-width: 540px) {
+  .masonry {
+    column-count: 2;
+  }
+  .project-text, .vignette-text{
+    font-size:2.5vw;
+  }
+  .project.is-moved {
+    transform: translate(250%, 0%);
+  }
+  .vignette {
+    width: 30%;
+  }
+  .vignette-image {
+    height: 29vw;
+  }
+}
+@media only screen and (max-width: 539px) {
+  .project-text, .vignette-text{
+    font-size:4vw;
+  }
+  .project.is-moved {
+    transform: translate(120%, 0%);
+  }
+  .vignette {
+    width: 50%;
+  }
+  .vignette-image {
+    height: 48vw;
+  }
+}

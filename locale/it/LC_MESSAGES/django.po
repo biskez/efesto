@@ -1,0 +1,134 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-09-16 17:43+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: .\efesto\settings.py:123
+msgid "English"
+msgstr "Inglese"
+
+#: .\efesto\settings.py:124
+msgid "Italian"
+msgstr "Italiano"
+
+#: .\templates\navbar.html:14
+msgid "Language"
+msgstr "Lingue"
+
+#title
+msgid "Efesto - Architecture & Engineering"
+msgstr "Efesto - Ingegneria di Architettura"
+
+#navbar
+msgid "home"
+msgstr "home"
+
+msgid "gallery"
+msgstr "galleria"
+
+msgid "team"
+msgstr "team"
+
+msgid "services"
+msgstr "servizi"
+
+msgid "contact us"
+msgstr "contattaci"
+
+msgid "news"
+msgstr "novità"
+
+#gallery
+msgid "all"
+msgstr "tutti"
+
+#swiper
+msgid "Engineering at Edge"
+msgstr "Ingegneria al Limite"
+
+msgid "High Quality"
+msgstr "Alta Qualità"
+
+msgid "Architecture & Building"
+msgstr "Architettura & Edilizia"
+
+msgid "Guaranteed"
+msgstr "Garantito"
+
+msgid "Eco Friendly"
+msgstr "Eco Friendly"
+
+msgid "Development"
+msgstr "Sviluppo"
+
+#footer
+msgid "ABOUT COMPANY"
+msgstr "CHI SIAMO"
+
+msgid "We remain true to the same principles on which our company was founded over a fifty years ago: providing superior service to our clients, putting safety first, creating opportunities for our people."
+msgstr "Rimaniamo fedeli agli stessi principi su cui è stata fondata la nostra azienda più di cinquant'anni fa: fornire un servizio superiore ai nostri clienti, mettere la sicurezza al primo posto, creare opportunità per le nostre persone."
+
+msgid "You can always contact with us via email or phone. Get in touch with contact and get a quote form."
+msgstr "Puoi sempre contattarci tramite e-mail o telefono. Mettiti in contatto con il contatto e ottieni un modulo di preventivo."
+
+msgid "Our support available and happy to help you."
+msgstr "Il nostro supporto è disponibile e felice di aiutarti."
+
+msgid "Europe"
+msgstr "Europa"
+
+msgid "Mon - Fri: 08:30am to 7:00pm"
+msgstr "Lun - Ven: dalle 08:30 alle 19:00"
+
+msgid "Sat - Sun: Closed"
+msgstr "Sab - Dom: Chiuso"
+
+msgid "© 2021 Company, Inc. All rights reserved."
+msgstr "© 2021 Società, Inc. Tutti i diritti sono riservati."
+
+msgid "We make your projects realizable"
+msgstr "Rendiamo realizzabili i vostri progetti"
+
+
+#project
+msgid "technical specifications"
+msgstr "specifiche tecniche"
+
+msgid "owner"
+msgstr "proprietario"
+
+msgid "location"
+msgstr "locazione"
+
+msgid "begin"
+msgstr "inizio"
+
+msgid "end"
+msgstr "fine"
+
+msgid "Under Construction"
+msgstr "In Costruzione"
+
+msgid "In Planning"
+msgstr "In Pianificazione"
+
+msgid "partners"
+msgstr "partner"
+
+msgid "description"
+msgstr "descrizione"

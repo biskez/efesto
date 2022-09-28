@@ -1,0 +1,49 @@
+{% include 'base.html' %}
+{% include 'navbar.html' %}
+
+{% block home %}
+<!-- Swiper -->
+<div class="swiper mySwiper">
+  <div class="swiper-wrapper">
+    {% for swiper in swipers %}
+      <div class="swiper-slide home-swiper">
+        <img src="{{ swiper.image }}" alt="" class="animate__animated home-img animate__zoomInSlow"/>
+        {% if forloop.counter0|divisibleby:2 %}
+          <div class="animate__animated animate__fadeInDown home-text-1"><h4>{{swiper.h4}}</h4></div>
+          <div class="animate__animated animate__fadeInLeft home-text-2"><h1>{{swiper.h1}}</h1></div>
+        {% else %}
+          <div class="animate__animated animate__fadeInDown home-text-3"><h4>{{swiper.h4}}</h4></div>
+          <div class="animate__animated animate__fadeInLeft home-text-4"><h1>{{swiper.h1}}</h1></div>
+        {% endif %}
+      </div>
+    {% endfor %}
+  </div>
+  <div class="swiper-pagination"></div>
+  <div class="swiper-button-next"></div>
+  <div class="swiper-button-prev"></div>
+</div>
+
+<div class="center">
+  <h6 class="margin-top5vh uppercase gray">Welcome</h6>
+  <h3>A Tradition Of Excellence</h3>
+  <p class="p-homepage">Pooleng starts its activities at the end of the 1970s and it specializes in design services, realization assistance and building work consultancy sector, and in the construction sector. A professional team, who sometimes works in partnership with famous international architects and specializes in integrate solutions between urbanism, architecture and civil engineering, assures the design process management.</p>
+  <p class="margin-bottom5vh p-homepage">Pooleng is certified as planning organization as per Law ISO 9001 from 1996.</p>
+</div>
+
+<div class="center">
+  <!--The div element for the map -->
+</div>
+
+<div id="map"></div>
+
+<div class="row --bs-gutter-x0">
+  <div class="col-2 numbers-col center margin-top8vh margin-bottom12vh"><h1 class="num1 numbershomepage brown weight600" id="value1">0</h1><h4 class="weight600 darkbrown">EMPLOYEES (1.500 DIRECT)</h4></div>
+  <div class="col-2 numbers-col center margin-top8vh margin-bottom12vh"><h1 class="num2 numbershomepage brown weight600" id="value2">0</h1><h4 class="weight600 darkbrown">M2 INDUSTRIAL AREAS</h4></div>
+  <div class="col-2 numbers-col center margin-top8vh margin-bottom12vh"><h1 class="num3 numbershomepage brown weight600" id="value3">0</h1><h4 class="weight600 darkbrown">€ TURNOVER 2020</h4></div>
+</div>
+
+{% include 'footer.html' %}
+
+{% include 'script.html' %}
+
+{% endblock home %}

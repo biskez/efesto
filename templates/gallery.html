@@ -1,0 +1,30 @@
+{% include 'base.html' %}
+{% include 'navbar.html' %}
+
+{% load i18n %}
+<body onload="loadGallery('In')">
+    <div class="button-group filter-button-group margin-top5vh margin-bottom5vh center">
+        <button class="button typeProjectButton capitalize typeProjectButton--active" data-filter="project">{% translate "all" %}</button><!--margin-right20-->
+        {% for typeProject in typeProjects %}
+            <button class="button typeProjectButton capitalize" data-filter="project--{{typeProject.name}}">{{typeProject.name}}</button>
+        {% endfor %}
+    </div>
+    <div id="gallery" class='masonry masonry-a gallery-transition'>
+        {% get_current_language as LANGUAGE_CODE %}
+        {% for project in projects %}
+            <a href="/{{LANGUAGE_CODE}}/project/{{project.id}}">
+                <div class="project project--{{project.type.name}}">
+                    <img class="project-image" src="{{project.image}}"/>
+                    <div class="project-overlay">
+                        <div class="project-text">{{project.title}}</div>
+                    </div>
+                    <!--<p class="cut-text">{{project.description}}</p>-->
+                </div>
+            </a>
+        {% endfor %}
+    </div>
+</body>
+
+{% include 'script.html' %}
+
+{% include 'footer.html' %}

@@ -1,0 +1,72 @@
+{% block footer %}
+{% load i18n %}
+
+<div class="home-footer-div"></div>
+
+<div class="footer-div">
+  <footer class="py-5">
+      <div class="row">
+        <div class="col-2 footer-col overflow-hidden">
+          <h6 class="footer-h6">{% translate "ABOUT COMPANY" %}</h6>
+          <ul class="nav flex-column">
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted c55"><div href="#"><img  class="footer-icon" src="{{configData.icon_footer}}"/></div></li>
+            <li class="nav-item mb-2"><a class="nav-link p-0 text-muted c55 cursor-auto">{% translate "We remain true to the same principles on which our company was founded over a fifty years ago: providing superior service to our clients, putting safety first, creating opportunities for our people." %}</a></li>
+          </ul>
+        </div>
+
+        <div class="col-2 footer-col overflow-hidden">
+        </div>
+
+        <div class="col-2 footer-col overflow-hidden">
+          <h6 class="footer-h6">{% translate "CONCTACT INFO" %}</h6>
+          <ul class="nav flex-column">
+            <li class="nav-item mb-2"><a class="nav-link p-0 text-muted c55 cursor-auto">{% translate "You can always contact with us via email or phone. Get in touch with contact and get a quote form." %}</a></li>
+            <li class="nav-item mb-2"><a href="{{company.address_maps}}" target="_blank" class="nav-link p-0 text-muted c55"><i class="fa fa-map-marker margin-right5 efesto-color-1"></i> {{company.address}}</a></li>
+            <li class="nav-item mb-2"><a class="nav-link p-0 text-muted c55 cursor-auto"><i class="fa fa-phone-square margin-right5 efesto-color-1"></i> {{company.phone_number}}</a></li>
+            <li class="nav-item mb-2"><a class="nav-link p-0 text-muted c55 cursor-auto"><i class="fa fa-envelope margin-right5 efesto-color-1"></i> {{company.email}}</a></li>
+            <li class="nav-item mb-2"><a class="nav-link p-0 text-muted c55 cursor-auto"><i class="fa fa-envelope margin-right5 efesto-color-1"></i> {{company.pec}}</a></li>
+          </ul>
+        </div>
+
+        <div class="col-2 footer-col overflow-hidden">
+          <h6 class="footer-h6">{% translate "SUPPORT" %}</h6>
+          <ul class="nav flex-column">
+            <li class="nav-item mb-2"><a class="nav-link p-0 text-muted c55">{% translate "Our support available and happy to help you." %}</a></li>
+            <li class="nav-item mb-2"><a class="nav-link p-0 text-muted c55">{% translate "Europe" %}</a></li>
+            <li class="nav-item mb-2"><a class="nav-link p-0 text-muted c55"><i class="fa fa-clock-o margin-right5 efesto-color-1"></i> {{company.open}}</a></li>
+            <li class="nav-item mb-2"><a class="nav-link p-0 text-muted c55"><i class="fa fa-times-circle-o margin-right5 efesto-color-1"></i> {{company.closed}}</a></li>
+          </ul>
+        </div>
+
+      <!-- <div class="col-4 footer-col overflow-hidden">
+          <form>
+            <h6 class="footer-h6">Subscribe to our newsletter</h6>
+            <p>Monthly digest of whats new and exciting from us.</p>
+            <div class="d-flex w-100 gap-2">
+              <label for="newsletter1" class="visually-hidden">Email address</label>
+              <input id="newsletter1" type="text" class="form-control" placeholder="Email address">
+              <button class="btn btn-primary" type="button">Subscribe</button>
+            </div>
+          </form>
+        </div>
+      </div> -->
+
+      <div class="d-flex justify-content-between py-4 my-4 footer-border-top">
+        <p class="white">{% translate "© 2021 Company, Inc. All rights reserved." %}</p>
+        <ul class="list-unstyled d-flex">
+          <li class="ms-3">
+            <i class="fa fa-2x fa-twitter hover-efesto-color-1 pointer white transition"></i>
+          </li>
+          <li class="ms-3">
+            <i class="fa fa-2x fa-instagram hover-efesto-color-1 pointer white transition"></i>
+          </li>
+          <li class="ms-3">
+            <i class="fa fa-2x fa-facebook-square hover-efesto-color-1 pointer white transition"></i>
+          </li>
+        </ul>
+      </div>
+      <a id="top-link" class="transition" href="#top"><span class="v-align-middle"><i class="fa fa-lg fa-chevron-up"></i>TOP</span></a>
+      <div class="center white"><a class="white not_underline footer-policies transition" href="#">Privacy</a> | <a class="white not_underline footer-policies transition" href="#">Cookie Policy</a></div>
+  </footer>
+</div>
+{% endblock footer %}

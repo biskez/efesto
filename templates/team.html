@@ -1,0 +1,36 @@
+{% include 'base.html' %}
+{% include 'navbar.html' %}
+
+{% load i18n %}
+{% get_current_language as LANGUAGE_CODE %}
+
+<body onload="loadGallery('In')">
+    {% for role in roles %}
+        <h1 class="animate__animated animate__zoomIn center weight600 brown uppercase margin-top4vh roleName">{{role.name}}</h1>
+        {% for line in role.lines %}
+            <div class='team'><!--column-count{{role.line_length}}-->
+                {% for member in team %}
+                    {% if role.id == member.role.id %}
+                        <a href="/{{LANGUAGE_CODE}}/team/{{member.id}}">
+                            <div class="vignette animate__animated animate__fadeInRight animate__delay-{{member.delay}}s radius100">
+                                <img class="vignette-image radius100" src="{{member.image}}"/>
+                                <div class="vignette-overlay radius100">
+                                    <div class="vignette-text radius100">
+                                        {{member.name}} {{member.surname}}
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        {% endfor %}
+    {% endfor %}
+    <div class="prova">
+     
+    </div>
+</body>
+
+{% include 'script.html' %}
+
+{% include 'footer.html' %}
