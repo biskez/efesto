@@ -1,0 +1,26 @@
+{% include 'base.html' %}
+{% include 'navbar.html' %}
+
+{% load i18n %}
+{% get_current_language as LANGUAGE_CODE %}
+
+<body>
+    <div class="width100 div-project-specs">
+       
+        <div class="newfirst animate__animated animate__zoomIn animate__delay-{{new.delay}}s" style="margin-bottom: 10vh;" >
+            <div class="newfirstimage" >
+                <img src="{{new.image}}"  class="newfirstimagesize" />
+            </div>
+            <div class="newfirstext" >
+                <small class="gray">{{new.date}}</small><br>
+                <h4 class="newfirsttitle">{{new.title}}</h4><br>
+                <p class="newfirstshortdescription">{{new.description}}</p>
+            </div>
+        </div>
+        
+    </div>
+</body>
+
+{% include 'footer.html' %}
+
+{% include 'script.html' %}

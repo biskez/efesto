@@ -132,3 +132,12 @@ msgstr "partner"
 
 msgid "description"
 msgstr "descrizione"
+
+msgid "Address Info"
+msgstr "Indirizzi"
+
+msgid "Contact Details"
+msgstr "Contatti"
+
+msgid "Working Time"
+msgstr "Orari"

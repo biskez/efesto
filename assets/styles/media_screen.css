@@ -91,9 +91,8 @@
   }
 }
 
-
 /* Masonry on large screens */
-@media only screen and (min-width: 1024px) {
+@media only screen and (min-width: 1451px) {
   .masonry {
     column-count: 4;
   }
@@ -109,10 +108,142 @@
   .vignette-image {
     height: 17vw;
   }
+  .width33member{
+    width: 35%;
+  }
+  .width66member{
+    width: 65%;
+  }
+  .member-image2{
+    display:none;
+  }
+  .service{
+    width:33%;
+    margin-left: 16%;
+  }
+  .serviceimage{
+    margin-left: 16%;
+  }
+}
+
+/* Masonry on large screens */
+@media only screen and (max-width: 1450px) and (min-width: 1301px) {
+  .masonry {
+    column-count: 4;
+  }
+  .project-text, .vignette-text{
+    font-size: 1vw;
+  }
+  .project.is-moved {
+    transform: translate(500%, 0%);
+  }  
+  .vignette {
+    width: 17%;
+  }
+  .vignette-image {
+    height: 17vw;
+  }
+  .width33member{
+    width: 40%;
+  }
+  .width66member{
+    width: 60%;
+  }
+  .member-image{
+    width: 58vw;
+  }
+  .member-image2{
+    display:none;
+  }
+  .service{
+    width:33%;
+    margin-left: 16%;
+  }
+  .serviceimage{
+    margin-left: 16%;
+  }
+}
+
+/* Masonry on large screens */
+@media only screen and (max-width: 1300px) and (min-width: 1149px) {
+  .masonry {
+    column-count: 4;
+  }
+  .project-text, .vignette-text{
+    font-size: 1vw;
+  }
+  .project.is-moved {
+    transform: translate(500%, 0%);
+  }  
+  .vignette {
+    width: 17%;
+  }
+  .vignette-image {
+    height: 17vw;
+  }
+  .width33member{
+    width: 45%;
+  }
+  .width66member{
+    width: 55%;
+  }
+  .member-image{
+    width: 58vw;
+    top:10vh;
+  }
+  .member-image2{
+    display:none;
+  }
+  .service{
+    width:33%;
+    margin-left: 16%;
+  }
+  .serviceimage{
+    margin-left: 16%;
+  }
+}
+
+/* Masonry on large screens */
+@media only screen and (max-width: 1150px) and (min-width: 1023px) {
+  .masonry {
+    column-count: 4;
+  }
+  .project-text, .vignette-text{
+    font-size: 1vw;
+  }
+  .project.is-moved {
+    transform: translate(500%, 0%);
+  }  
+  .vignette {
+    width: 17%;
+  }
+  .vignette-image {
+    height: 17vw;
+  }
+  .width33member{
+    width: 50%;
+  }
+  .width66member{
+    width: 50%;
+  }
+  .member-image{
+    width: 58vw;
+    top:10vh;
+  }
+  .member-image2{
+    display:none;
+  }  
+  .service{
+    width:33%;
+    margin-left: 16%;
+  }
+  .serviceimage{
+    margin-left: 16%;
+  }
 }
 
 /* Masonry on medium-sized screens */
-@media only screen and (max-width: 1023px) and (min-width: 768px) {
+@media only screen and (max-width: 1024px) and (min-width: 768px) {
   .masonry {
     column-count: 3;
   }
@@ -128,6 +259,20 @@
   .vignette-image {
     height: 30vw;
   }
+  .member-image2{
+    margin-bottom: 4vw;
+  }
+  .member-image{
+    display:none;
+  }
+  .service{
+    width:33%;
+    margin-left: 16%;
+  }
+  .serviceimage{
+    margin-left: 16%;
+  }
+  
 }
 
 /* Masonry on small screens */
@@ -147,6 +292,45 @@
   .vignette-image {
     height: 29vw;
   }
+  .member-image{
+    display:none;
+  }  
+  .member-image2{
+    margin-bottom: 4vw;
+  }
+  .service{
+    width:89%;
+    margin-left: 5%;
+  }
+  .serviceimage{
+    margin-left: 5%;
+  }
+  .new{
+    width:85%;
+  }
+  .newshortdescription{
+    width:90%;
+  }
+  .newfirst{
+    width:100%;
+  }
+  .newfirstimage{
+    width:85%;
+  }
+  .newfirstshortdescription{
+    width:90%;
+  }
+  .newfirstimagesize{
+    width: 73vw;
+    height: 45vw;
+  }
+  .newfirstext{
+    width: 85%;
+  }
+  .newimagesize{
+    width: 73vw;
+    height: 45vw;
+  }
 }
 @media only screen and (max-width: 539px) {
   .project-text, .vignette-text{
@@ -160,5 +344,44 @@
   }
   .vignette-image {
     height: 48vw;
+  }
+  .member-image{
+    display:none;
+  }
+  .member-image2{
+    margin-bottom: 4vw;
+  }
+  .service{
+    width:89%;
+    margin-left: 5%;
+  }
+  .serviceimage{
+    margin-left: 5%;
+  }
+  .new{
+    width:85%;
+  }
+  .newshortdescription{
+    width:90%;
+  }
+  .newfirst{
+    width:100%;
+  }
+  .newfirstimage{
+    width:85%;
+  }
+  .newfirstshortdescription{
+    width:90%;
+  }
+  .newfirstimagesize{
+    width: 73vw;
+    height: 45vw;
+  }
+  .newfirstext{
+    width: 85%;
+  }
+  .newimagesize{
+    width: 73vw;
+    height: 45vw;
   }
 }

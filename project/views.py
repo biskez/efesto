@@ -11,11 +11,11 @@ def project(request, id):
         company = getCompany()
         
         project = getProject(id)        
+        project_gallery = getProjectGallery(id)
 
         typeProjects = getTypeProjects()
 
         maps = getConfigMaps()
-        projects = getProjects()
         dataJSON = getDataDictionary([project])
 
     except ObjectDoesNotExist:  
@@ -24,5 +24,5 @@ def project(request, id):
                                          'company': company, 'STYLES_PATH': STYLES_PATH})
 
     return render(request, "project.html", {'configData': configData, 'current_page': current_page, 'navbar': navbar, 'typeProjects': typeProjects,
-                                         'project': project, 'projects': projects, 'gmaps': maps.gmaps, 'marker': maps.marker,
+                                         'project': project, 'project_gallery': project_gallery, 'gmaps': maps.gmaps, 'marker': maps.marker,
                                          'dataJSON': dataJSON, 'cluster_path': maps.cluster_path, 'company': company, 'STYLES_PATH': STYLES_PATH})

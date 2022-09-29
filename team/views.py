@@ -52,4 +52,4 @@ def member(request, id):
                                          'company': company, 'STYLES_PATH': STYLES_PATH})
 
     return render(request, "member.html", {'configData': configData, 'current_page': current_page, 'navbar': navbar, 'member': member,
-                                         'company': company, 'STYLES_PATH': STYLES_PATH})
+                                         'company': company, 'STYLES_PATH': STYLES_PATH, 'IMAGES_PATH': IMAGES_PATH})

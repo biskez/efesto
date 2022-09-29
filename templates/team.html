@@ -11,16 +11,18 @@
             <div class='team'><!--column-count{{role.line_length}}-->
                 {% for member in team %}
                     {% if role.id == member.role.id %}
-                        <a href="/{{LANGUAGE_CODE}}/team/{{member.id}}">
-                            <div class="vignette animate__animated animate__fadeInRight animate__delay-{{member.delay}}s radius100">
-                                <img class="vignette-image radius100" src="{{member.image}}"/>
-                                <div class="vignette-overlay radius100">
-                                    <div class="vignette-text radius100">
-                                        {{member.name}} {{member.surname}}
+                        {% if member.image %}
+                            <a href="/{{LANGUAGE_CODE}}/team/{{member.id}}"  style="color: transparent;">
+                                <div class="vignette animate__animated animate__fadeInRight animate__delay-{{member.delay}}s radius100">
+                                    <img class="vignette-image blackandwhite" src="{{member.image}}"/>
+                                    <div class="vignette-overlay">
+                                        <div class="vignette-text blackandwhite">
+                                            {{member.name}} {{member.surname}}
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        </a>
+                            </a>
+                        {% endif %}
                     {% endif %}
                 {% endfor %}
             </div>
@@ -31,6 +33,6 @@
     </div>
 </body>
 
-{% include 'script.html' %}
-
 {% include 'footer.html' %}
+
+{% include 'script.html' %}

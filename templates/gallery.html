@@ -12,19 +12,21 @@
     <div id="gallery" class='masonry masonry-a gallery-transition'>
         {% get_current_language as LANGUAGE_CODE %}
         {% for project in projects %}
-            <a href="/{{LANGUAGE_CODE}}/project/{{project.id}}">
-                <div class="project project--{{project.type.name}}">
-                    <img class="project-image" src="{{project.image}}"/>
-                    <div class="project-overlay">
-                        <div class="project-text">{{project.title}}</div>
+            {% if project.image %}
+                <a href="/{{LANGUAGE_CODE}}/project/{{project.id}}">
+                    <div class="project project--{{project.type.name}}">
+                        <img class="project-image" src="{{project.image}}"/>
+                        <div class="project-overlay">
+                            <div class="project-text">{{project.title}}</div>
+                        </div>
+                        <!--<p class="cut-text">{{project.description}}</p>-->
                     </div>
-                    <!--<p class="cut-text">{{project.description}}</p>-->
-                </div>
-            </a>
+                </a>
+            {% endif %}
         {% endfor %}
     </div>
 </body>
 
-{% include 'script.html' %}
-
 {% include 'footer.html' %}
+
+{% include 'script.html' %}

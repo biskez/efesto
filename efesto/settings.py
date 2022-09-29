@@ -34,6 +34,7 @@ ALLOWED_HOSTS = [
 # Application definition
 
 INSTALLED_APPS = [
+    'modeltranslation',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -46,9 +47,21 @@ INSTALLED_APPS = [
     'gallery',
     'project',
     'team',
-    #'services',
-    #'contact_us',
-    #'news',
+    'services',
+    'contact_us',
+    'news',
+]
+
+TRANSLATABLE_MODEL_MODULES = [
+    "home.models", 
+    "navbar.models", 
+    "templates.models", 
+    "gallery.models", 
+    "project.models",
+    "team.models",
+    "services.models",
+    "contact_us.models",
+    "news.models",
 ]
 
 MIDDLEWARE = [
@@ -154,10 +167,14 @@ STATICFILES_DIRS = (
 )
 IMAGES_PATH = STATIC_URL+'images/'
 STYLES_PATH = STATIC_URL+'styles/'
+
 MARKERS_PATH = IMAGES_PATH+'markers/'
 PROJECTS_PATH = IMAGES_PATH+'projects/'
+PROJECT_GALLERY_PATH = IMAGES_PATH+'projectgallery/'
 TYPEPROJECT_PATH = IMAGES_PATH+'typeprojects/'
 TEAM_PATH = IMAGES_PATH+'team/'
+SERVICES_PATH = IMAGES_PATH+'services/'
+NEWS_PATH = IMAGES_PATH+'news/'
 
 GMAPS_LINK = 'https://www.google.it/maps/place/'
 

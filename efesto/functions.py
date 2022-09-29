@@ -4,7 +4,9 @@ from django.http import HttpResponse
 from home.models import TypeProject, Project, SwiperHomepage, Company, ConfigData, Maps, Error
 from navbar.models import Navbar
 from team.models import Team, Role
-from efesto.settings import IMAGES_PATH, STYLES_PATH, MARKERS_PATH, PROJECTS_PATH, TYPEPROJECT_PATH, ERROR_IMAGE, GMAPS_LINK, TEAM_PATH
+from services.models import Service, Subservice
+from news.models import News
+from efesto.settings import IMAGES_PATH, STYLES_PATH, MARKERS_PATH, PROJECTS_PATH, TYPEPROJECT_PATH, ERROR_IMAGE, GMAPS_LINK, TEAM_PATH, SERVICES_PATH, NEWS_PATH, PROJECT_GALLERY_PATH
 from django.shortcuts import render
 from json import dumps
 from efesto.translation import *
@@ -33,16 +35,14 @@ def getNavbar():
 def getSwipers():
     swipers = SwiperHomepage.objects.all()
     for swiper in swipers:
-        swiper.image = IMAGES_PATH+swiper.image
-        swiper.h1 = translate_string(swiper.h1)
-        swiper.h4 = translate_string(swiper.h4)
+        swiper.image = swiper.image.url
     return swipers
 
 def getProject(id):
     project = Project.objects.get(id=id)
     project.type_name = project.type.name
     project.type_name_en = project.type.name_en
-    project.image = PROJECTS_PATH+project.image
+    project.image = project.image.url
     return project
 
 def getProjects():
@@ -50,8 +50,19 @@ def getProjects():
     for project in projects:
         project.type_name = project.type.name
         project.type_name_en = project.type.name_en
-        project.image = PROJECTS_PATH+project.image
+        project.image = project.image.url
     return projects
+
+def getProjectGallery(id):
+    project_gallery = Project.objects.raw(
+        "SELECT home_projectgallery.* "+
+            "FROM home_project "+
+            "INNER JOIN home_projectgallery ON home_projectgallery.project_id = home_project.id "+
+            "WHERE home_project.id = "+ str(id) + " "+
+            "ORDER BY home_projectgallery.id;")
+    for project_photo in project_gallery:
+        project_photo.image = project_photo.image.url
+    return project_gallery
 
 def getTypeProjects():
     typeProjects = TypeProject.objects.raw(
@@ -70,6 +81,19 @@ def getCompany():
     company = Company.objects.get(id=1)
     company.address_maps = GMAPS_LINK+company.address.replace(" ", "+")
     return company
+
+def getCompanyAsProject():
+    company = getCompany()    
+    project = Project()
+    project.title = company.sitename
+    project.lat = company.lat
+    project.lng = company.lng
+    project.type_id = 1
+    project.type_name = "efesto"
+    project.type_name_en = "efesto"
+    project.type_name_it = "efesto"
+    project.location = company.address
+    return project
 
 def getAllRoles():
     roles = Role.objects.all()
@@ -95,14 +119,52 @@ def getTeam():
     for member in team:
         member.delay = i
         i = i + 1
-        member.image = TEAM_PATH+member.image
+        member.image = member.image.url
     return team
 
 def getMember(id):
     member = Team.objects.get(id=id)
     member.delay = 0
-    member.image = TEAM_PATH+member.image
+    member.image = member.image.url    
+    member.qualifications = member.qualifications.split('#')
     return member
+
+def getService(id):
+    service = Service.objects.get(id=id)
+    service.delay = (service.order * 1) - 1
+    service.image = service.image.url
+    return service
+
+def getServices():
+    services = Service.objects.all()
+    i = 0
+    for service in services:
+        service.delay = i
+        i = i + 1
+        service.image = service.image.url    
+    return services
+
+def getSubservices():
+    subservices = Subservice.objects.all()
+    for subservice in subservices:
+        subservice.delay = getService(subservice.service_id).delay + 2
+        subservice.delay = 0
+    return subservices
+
+def getNews():
+    news = News.objects.all()
+    i = 0
+    for new in news:
+        new.delay = i
+        i = i + 1
+        new.image = new.image.url
+    return news
+
+def getNew(id):
+    new = News.objects.get(id=id)
+    new.delay = 0
+    new.image = new.image.url
+    return new
 
 def getDataError(codeError):
     dataError = Error.objects.get(code=codeError)

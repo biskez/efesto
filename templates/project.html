@@ -52,18 +52,20 @@
     </div>
 
     <div id="gallery-project" class='gallery-project masonry masonry-a gallery-transition'>
-        {% for project in projects %}
-            <div class="project project--{{project.type.name}}">
-                <img class="project-image" src="{{project.image}}"/>
-                <div class="project-overlay">
-                    <div class="project-text">{{project.title}}</div>
+        {% for project_photo in project_gallery %}
+            {% if project_photo.image %}
+                <div class="project">
+                    <img class="project-image" src="{{project_photo.image}}"/>
+                    <div class="project-overlay">
+                        <div class="project-text"></div>
+                    </div>
                 </div>
-            </div>
+            {% endif %}
         {% endfor %}
     </div>
 
 </body>
 
-{% include 'script.html' %}
-
 {% include 'footer.html' %}
+
+{% include 'script.html' %}

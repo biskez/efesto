@@ -1,0 +1,33 @@
+{% include 'base.html' %}
+{% include 'navbar.html' %}
+
+{% load i18n %}
+{% get_current_language as LANGUAGE_CODE %}
+
+<body>
+    <div class="width100 margin-top4vh">
+        {% for service in services %}
+            {% if service.image %}
+                <div class="service animate__animated animate__zoomIn animate__delay-{{service.delay}}s">
+                    <div class="serviceimage">
+                        <img src="{{service.image}}"  style="width: 25%;"/>
+                    </div>
+                    <div class="servicetitle">
+                        <h1>{{service.order}} - {{service.name}}</h1>
+                    </div>
+                    <ul>
+                        {% for subservice in subservices %}
+                            {% if subservice.service_id == service.id %}
+                                <li class="lisubservices animate__animated animate__fadeIn animate__delay-{{subservice.delay}}s">{{subservice.name}}</li>
+                            {% endif %}
+                        {% endfor %}
+                    </ul>
+                </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+</body>
+
+{% include 'footer.html' %}
+
+{% include 'script.html' %}

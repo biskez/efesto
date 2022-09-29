@@ -1,0 +1,53 @@
+{% include 'base.html' %}
+{% include 'navbar.html' %}
+
+{% load i18n %}
+{% get_current_language as LANGUAGE_CODE %}
+
+<body>
+    <div class="width100 div-project-specs">
+        <div class="specs-project inline animate__animated animate__fadeIn">
+            <div class="p-project">
+                <h5 class="contacttitle uppercase">
+                    <i class="fa fa-2x fa-map"></i> <!-- {% translate "Address Info" %} -->
+                </h5>
+                <b>{{company.sitename}}</b><br>
+                <p class="margin-left2vw" >
+                    <a href="{{company.address_maps}}" style="text-decoration:none!important;" target="_blank"> <i class="fa fa-map-marker margin-right5 efesto-color-1"></i> {{company.address}}</a>
+                </p>
+            </div>
+            
+            <div class="p-project">
+                <h5 class="contacttitle uppercase">
+                    <i class="fa fa-2x fa-phone"></i> <!-- {% translate "Contact Details" %} -->
+                </h5>
+                <b>{{company.sitename}}</b><br>
+                <p class="margin-left2vw">
+                    <i class="fa fa-phone-square margin-right5 efesto-color-1"></i> {{company.phone_number}}<br>
+                    <i class="fa fa-envelope margin-right5 efesto-color-1"></i> {{company.email}}<br>
+                    <i class="fa fa-envelope margin-right5 efesto-color-1"></i> {{company.pec}}
+                </p>
+            </div>
+
+            <div class="p-project">
+                <h5 class="contacttitle uppercase">
+                    <i class="fa fa-2x fa-calendar" ></i> <!-- {% translate "Working Time" %} -->
+                </h5>
+                <b>{{company.sitename}}</b><br>
+                <p class="margin-left2vw">
+                    <i class="fa fa-clock-o margin-right5 efesto-color-1"></i> {{company.open}}<br>
+                    <i class="fa fa-times-circle-o margin-right5 efesto-color-1"></i> {{company.closed}}
+                </p>
+            </div>
+        </div>
+
+        <div class="specs-project inline margin-left8vw">
+            <div id="map" class="maps-project"></div>
+        </div>
+        
+    </div>
+</body>
+
+{% include 'footer.html' %}
+
+{% include 'script.html' %}

@@ -4,18 +4,53 @@
 {% load i18n %}
 {% get_current_language as LANGUAGE_CODE %}
 
-
-<div class="vignette animate__animated animate__fadeInRight animate__delay-{{member.delay}}s radius100">
-    <img class="vignette-image radius100" src="{{member.image}}"/>
-    <div class="vignette-overlay radius100">
-        <div class="vignette-text radius100">
-            {{member.name}} {{member.surname}}
+<!--<div class="width100 inline height75">
+    <div class="width33 height100 backgrounddarkbrown floatleft">
+        <div class="vertical-text height50 floatright">
+            <h1 class="uppercase text-right">{{member.name}}</h1>
         </div>
+    </div>
+    <div class="width66 height100 backgroundbrown floatright">
+        <div class="vertical-text height75 floatleft">
+            <h1 class="uppercase text-right">{{member.surname}}</h1>
+        </div>
+    </div>
+</div>-->
+
+<div class="width100 inline">
+    <div class="width33member height100 floatleft">
+        <h1 class="member-title animate__animated animate__fadeInLeft">{{member.name}} {{member.surname}}</h1>
+        <div class="div-img animate__animated animate__fadeInRight">
+            <img class="member-image2 animate__animated animate__fadeInRight" src="{{member.image}}" />
+        </div>
+        <p class="p-team margin-left5vw margin-right5vw animate__animated animate__fadeInLeft">{{member.description}}</p>
+        {% for qualification in member.qualifications %}
+            {% if forloop.counter0|divisibleby:2 %}
+            <div class="coccarda animate__animated animate__fadeInRight animate__delay-{{forloop.counter0}}s">
+                <img class="coccarda_img" src="{{IMAGES_PATH}}coccarda_sinistra.png" />
+                <h4 class="coccarda-h4-sinistra">{{qualification}}</h4>
+            </div>
+            {% else %}
+            <div class="coccarda animate__animated animate__fadeInLeft animate__delay-{{forloop.counter0}}s">
+                <img class="coccarda_img" src="{{IMAGES_PATH}}coccarda_destra.png" />
+                <h4 class="coccarda-h4-destra">{{qualification}}</h4>
+            </div>
+            {% endif %}
+      {% endfor %}
+    </div>
+    <div class="width66member height100 floatright margin90vhbottom">
+        <img class="member-image animate__animated animate__fadeInRight" src="{{member.image}}" />
     </div>
 </div>
 
+
+<!--<div class="coccarda">
+    <img class="coccarda_img" src="{{IMAGES_PATH}}coccarda_desc.png" />
+</div>
+<div class="coccarda_desc"></div>-->
+
 </body>
 
-{% include 'script.html' %}
-
 {% include 'footer.html' %}
+
+{% include 'script.html' %}
