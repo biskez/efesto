@@ -1,1 +1,1 @@
-web: gunicorn --chdir efesto efesto.wsgi
+web: gunicorn --pythonpath efesto efesto.wsgi
