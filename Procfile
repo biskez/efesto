@@ -1,1 +1,1 @@
-web: gunicorn efesto:app
+web: gunicorn efesto.wsgi
