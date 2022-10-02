@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     'services',
     'contact_us',
     'news',
+    'efesto',
 ]
 
 TRANSLATABLE_MODEL_MODULES = [
