@@ -1,6 +1,6 @@
 # Model Translation
-#from modeltranslation.translator import translator, TranslationOptions
-from translation import translator, TranslationOptions
+from modeltranslation.translator import translator, TranslationOptions
+#from translation import translator, TranslationOptions
 from home.models import *
 from navbar.models import *
 from team.models import *
