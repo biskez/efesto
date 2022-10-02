@@ -1,1 +1,1 @@
-web: gunicorn efesto.wsgi
+web: gunicorn --chdir efesto efesto.wsgi
