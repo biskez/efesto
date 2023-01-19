@@ -4,7 +4,7 @@ from django.http.response import HttpResponse
 from django.shortcuts import render
 from django.http import HttpRequest
 from django.template.loader import render_to_string
-from django.utils.translation import gettext as _
+#from django.utils.translation import gettext as _
 from django.utils.translation import get_language, activate, gettext
 from django.conf.urls.static import static
 from home.models import TypeProject, Project, SwiperHomepage, Company, ConfigData, Maps, Error
