@@ -104,10 +104,10 @@ WSGI_APPLICATION = 'efesto.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'efesto',
-        'USER': 'biskez',
-        'PASSWORD': 'Brian2020+',
-        'HOST': '212.171.52.34',
+        'NAME': 's75148_efesto',
+        'USER': 'u75148_UTU7GXNBRy',
+        'PASSWORD': 'PLizc^oAxM^2BIbBgus.OaHb',
+        'HOST': '51.77.202.155',
         'PORT': '3306',
     }
 }
