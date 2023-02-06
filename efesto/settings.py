@@ -28,7 +28,8 @@ SECRET_KEY = 'django-insecure-(zi5^m4bm0p3_5250th38ir7_x+*9%1^&uyia7&rfq4vykdjsc
 DEBUG = False
 
 ALLOWED_HOSTS = [
-    'efesto.herokuapp.com'
+    'efesto.herokuapp.com',
+    '127.0.0.1'
 ]
 
 
@@ -163,8 +164,8 @@ IS_MONOLINGUAL=False
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
-STATIC_ROOT = os.path.join(BASE_DIR,'static') 
-STATIC_URL = STATIC_ROOT+'/assets/'
+#STATIC_ROOT = os.path.join(BASE_DIR,'static') 
+STATIC_URL = 'assets/'
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR,'assets'),
 )
