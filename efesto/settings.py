@@ -167,7 +167,7 @@ IS_MONOLINGUAL=False
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 STATIC_ROOT = os.path.join(BASE_DIR,'assets') 
-STATIC_URL = 'assets/'
+STATIC_URL = '/assets/'
 #STATICFILES_DIRS = (
 #    os.path.join(BASE_DIR,'assets'),
 #)
