@@ -116,6 +116,10 @@ DATABASES = {
     }
 }
 
+#MYSQL ADMIN USER
+#root
+#Biskez2022+
+
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
@@ -168,9 +172,9 @@ IS_MONOLINGUAL=False
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 STATIC_ROOT = os.path.join(BASE_DIR,'assets') 
 STATIC_URL = '/assets/'
-#STATICFILES_DIRS = (
-#    os.path.join(BASE_DIR,'assets'),
-#)
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR,'assets/images'),
+)
 IMAGES_PATH = STATIC_URL+'images/'
 STYLES_PATH = STATIC_URL+'styles/'
 
