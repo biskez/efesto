@@ -29,6 +29,8 @@ DEBUG = False
 
 ALLOWED_HOSTS = [
     'efesto.herokuapp.com',
+    'www.efestoingegneria.it',
+    'efestoingegneria.it',
     '127.0.0.1'
 ]
 
@@ -108,10 +110,10 @@ WSGI_APPLICATION = 'efesto.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 's75148_efesto',
-        'USER': 'u75148_UTU7GXNBRy',
-        'PASSWORD': 'PLizc^oAxM^2BIbBgus.OaHb',
-        'HOST': '51.77.202.155',
+        'NAME': 'efestoin_efestoingegneria',
+        'USER': 'efestoin_efestoingegneria',
+        'PASSWORD': 'xX6xuaPYLNuyU4d',
+        'HOST': '116.202.134.139',
         'PORT': '3306',
     }
 }
