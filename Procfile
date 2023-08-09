@@ -1,1 +1,1 @@
-web: python manage.py runserver 0.0.0.0:443
+web: gunicorn --pythonpath efesto efesto.wsgi
