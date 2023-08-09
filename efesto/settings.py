@@ -111,7 +111,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'efestoin_efestoingegneria',
-        'USER': 'efestoin_efestoingegneria',
+        'USER': 'efestoin_admin',
         'PASSWORD': 'xX6xuaPYLNuyU4d',
         'HOST': '116.202.134.139',
         'PORT': '3306',
