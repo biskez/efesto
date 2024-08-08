@@ -31,7 +31,7 @@ ALLOWED_HOSTS = [
     'efesto.herokuapp.com',
     'www.efestoingegneria.it',
     'efestoingegneria.it',
-    'efestoingegneria-13c94ce672f7.herokuapp.com',
+    'efesto-910593bf6f6b.herokuapp.com',
     '127.0.0.1'
 ]
 
