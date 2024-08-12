@@ -126,10 +126,10 @@ LOGGING = {
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'efestoin_efestoingegneria',
-        'USER': 'efestoin_admin',
+        'NAME': 'efestoi1_efestoingegneria',
+        'USER': 'efestoi1_admin',
         'PASSWORD': 'xX6xuaPYLNuyU4d',
-        'HOST': '116.202.134.139',
+        'HOST': '45.43.163.116',
         'PORT': '3306',
     }
 }
