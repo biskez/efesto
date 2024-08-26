@@ -29,7 +29,12 @@
     <div class="width100 div-project-specs">
         <div class="specs-project inline">
             <h4 class="p-project-border uppercase">{% translate "technical specifications" %} </h4>
-            <p class="p-project"><span class="bold capitalize">{% translate "owner" %}: </span>{{project.owner}}</p>
+            {% if project.owner != None %}
+                <p class="p-project"><span class="bold capitalize">{% translate "owner" %}: </span>{{project.owner}}</p>
+            {% endif %}
+            {% if project.cost != None %}
+                <p class="p-project"><span class="bold capitalize">{% translate "cost" %}: </span>{{project.cost}}</p>
+            {% endif %}
             <p class="p-project"><span class="bold capitalize">{% translate "location" %}: </span>{{project.location}}</p>
             {% if project.begin != None %}
                 <p class="p-project"><span class="bold capitalize">{% translate "begin" %}: </span>{{project.begin}}</p>
